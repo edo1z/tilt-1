@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: my-tilt-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: my-tilt-app
+  template:
+    metadata:
+      labels:
+        app: my-tilt-app
+    spec:
+      containers:
+        - name: my-tilt-app
+          image: my-tilt-app-image:latest
+          ports:
+            - containerPort: 8000
